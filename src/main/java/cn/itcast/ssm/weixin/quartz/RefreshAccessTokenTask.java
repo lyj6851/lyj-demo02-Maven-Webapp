@@ -20,6 +20,7 @@ import cn.itcast.ssm.weixin.util.JsonUtil;
 @Component
 public class RefreshAccessTokenTask {
 	public static String at = WeixinContext.getAccessToken();
+	//public static String at = "zkf9IXiezkE4VYEr7z4zbsNG4KnAXQou4Y5HRDr23h6JinTmLNJypi3OQ2iAdj41SjEdXpcDjlF6z_wCG0aumm8PbB8sh6UVuNUAb9_XWk9G20Zb0Qtq5wxlXV59CrSjJQQaABAFMM";
 	public void refreshToken(){
 		
 		HttpGet get = null;

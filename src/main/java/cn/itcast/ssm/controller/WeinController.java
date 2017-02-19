@@ -1,9 +1,8 @@
 package cn.itcast.ssm.controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import cn.itcast.ssm.weixin.kit.SecurityKit;
 import cn.itcast.ssm.weixin.model.WeixinContext;
+import cn.itcast.ssm.weixin.msg.MessageKit;
 
 @Controller
 public class WeinController {
@@ -53,17 +53,14 @@ public class WeinController {
 	}
 	@RequestMapping(value="/wget",method=RequestMethod.POST)
 	public void getInfo(HttpServletRequest req,HttpServletResponse resp) throws IOException {
-//		Map<String,String> msgMap = MessageKit.reqMsg2Map(req);
-//		String respCon = MessageKit.handlerMsg(msgMap);
-//		resp.setContentType("application/xml;charset=UTF-8");
-//		resp.setCharacterEncoding("UTF-8");
-//		System.out.println(respCon);
-//		resp.getWriter().write(respCon);
-		BufferedReader br = new BufferedReader(new InputStreamReader(req.getInputStream()));
-		String str = null;
-		while((str=br.readLine())!=null){
-			System.out.println(str);
-		}
+		Map<String,String> msgMap = MessageKit.reqMsg2Map(req);
+		
+		String respCon = MessageKit.handlerMsg(msgMap);
+		resp.setContentType("application/xml;charset=UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		System.out.println(respCon);
+		resp.getWriter().write(respCon);
+		
 	}
 	//获取token
 	@RequestMapping("/at")
