@@ -1,6 +1,5 @@
 package cn.itcast.ssm.weixin;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,6 @@ import org.apache.http.util.EntityUtils;
 import org.junit.Test;
 
 import cn.itcast.ssm.weixin.kit.SecurityKit;
-import cn.itcast.ssm.weixin.media.MediaKit;
 import cn.itcast.ssm.weixin.model.WeixinContext;
 import cn.itcast.ssm.weixin.model.WeixinFinalValue;
 import cn.itcast.ssm.weixin.model.WeixinMenu;
@@ -133,20 +131,6 @@ public class TestInit {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	//测试上传图片到临时素材
-	@Test
-	public void testPostMedia(){
-		String mid = MediaKit.postMedia("d:/5.jpg", "image");
-		System.out.println(mid);
-	}
-	//测试看图片到临时素材
-	@Test
-	public void testGetMedia(){
-		MediaKit.getMedia("RW71TU43MYggcXTIQJ6VfJC0yAYSyxiQVN9QW5ru_11lsXlIfboZxsDZLjsfztyF",new File("d:/copy.jpg"));
-		
-		
 	}
 	
 }
